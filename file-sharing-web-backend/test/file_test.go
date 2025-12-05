@@ -172,7 +172,6 @@ func TestFileUpload_SimpleFlow(t *testing.T) {
 		tmp, _ := os.CreateTemp("", "private*.txt")
 		tmp.WriteString("Dau Minh Khoi")
 		tmp.Seek(0, 0)
-		defer os.Remove(tmp.Name())
 
 		part, _ := writer.CreateFormFile("file", "private.txt")
 		io.Copy(part, tmp)
